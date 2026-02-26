@@ -127,7 +127,15 @@ def main():
         
         try:
             st.markdown('<div class="menu-image-main">', unsafe_allow_html=True)
-            st.image("https://i.ibb.co/k2y63WqW/IMG-6333.jpg", use_column_width=True)
+            col_menu, col_expand = st.columns([0.9, 0.1])
+            
+            with col_menu:
+                st.image("https://i.ibb.co/k2y63WqW/IMG-6333.jpg", use_column_width=True)
+            
+            with col_expand:
+                if st.button("🔍", help="전체화면"):
+                    st.image("https://i.ibb.co/k2y63WqW/IMG-6333.jpg", use_column_width=True, width=1000)
+            
             st.markdown('</div>', unsafe_allow_html=True)
         except Exception as e:
             st.error(f"📸 이미지 로드 오류: {str(e)}")
