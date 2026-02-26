@@ -127,7 +127,7 @@ def main():
         
         if st.session_state.menu_image is not None:
             st.markdown('<div class="menu-image-main">', unsafe_allow_html=True)
-            st.image("https://ibb.co/k2y63WqW/IMG-6333.jpg", use_column_width=True)
+            st.image("https://i.ibb.co/k2y63WqW/IMG-6333.jpg", use_column_width=True)
             st.markdown('</div>', unsafe_allow_html=True)
         else:
             st.info("📸 아래 업로드 버튼을 통해 메뉴판 사진을 올려주세요!")
