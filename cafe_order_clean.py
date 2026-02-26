@@ -183,30 +183,6 @@ def main():
         
         st.markdown('</div>', unsafe_allow_html=True)
         
-        # 📤 메뉴판 업로드 섹션 (맨 아래)
-        st.markdown('---')
-        st.markdown('<div class="menu-upload-section">', unsafe_allow_html=True)
-        st.markdown("### 📤 메뉴판 업로드")
-        
-        col_upload, col_space = st.columns([1, 3])
-        with col_upload:
-            uploaded_file = st.file_uploader(
-                "메뉴판 업로드", 
-                type=['png', 'jpg', 'jpeg'],
-                key="menu_upload",
-                help="메뉴판 이미지 업로드 (PNG, JPG, JPEG)"
-            )
-            
-            if uploaded_file is not None:
-                try:
-                    image = Image.open(uploaded_file)
-                    st.session_state.menu_image = image
-                    st.success("✅ 메뉴판이 업로드되었습니다!")
-                    st.rerun()
-                except Exception as e:
-                    st.error(f"이미지 로드 오류: {e}")
-        
-        st.markdown('</div>', unsafe_allow_html=True)
     
     # 오른쪽 슬림 사이드바
     with col2:
@@ -286,6 +262,27 @@ def main():
                         st.rerun()
                 
                 st.markdown("<hr style='margin: 5px 0; border: 0; border-top: 1px solid #eee;'>", unsafe_allow_html=True)
+        
+        st.markdown('---')
+        
+        # 📤 메뉴판 업로드 (맨 아래)
+        st.markdown("**📤 메뉴판 업로드**")
+        
+        uploaded_file = st.file_uploader(
+            "메뉴판 사진", 
+            type=['png', 'jpg', 'jpeg'],
+            key="menu_upload",
+            help="메뉴판 이미지 업로드 (PNG, JPG, JPEG)"
+        )
+        
+        if uploaded_file is not None:
+            try:
+                image = Image.open(uploaded_file)
+                st.session_state.menu_image = image
+                st.success("✅ 메뉴판이 업로드되었습니다!")
+                st.rerun()
+            except Exception as e:
+                st.error(f"이미지 로드 오류: {e}")
         
         st.markdown('</div>', unsafe_allow_html=True)
 
