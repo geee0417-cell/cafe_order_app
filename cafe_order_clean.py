@@ -127,12 +127,10 @@ def main():
         
         st.markdown('<div class="menu-image-main">', unsafe_allow_html=True)
         
-        try:
-            # Google Drive 이미지 (항상 표시)
-            drive_url = "https://drive.google.com/uc?export=view&id=1WHjPt4U2uZ1q_lTJNjT-A2Uzp6bZbQZP"
-            st.image(drive_url, use_column_width=True)
-        except:
-            st.info("📸 메뉴판을 불러올 수 없습니다.")
+        if st.session_state.menu_image is not None:
+            st.image(st.session_state.menu_image, use_column_width=True)
+        else:
+            st.info("📸 아래 업로드 버튼을 통해 메뉴판 사진을 올려주세요!")
         
         st.markdown('</div>', unsafe_allow_html=True)
         
