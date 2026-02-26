@@ -125,12 +125,12 @@ def main():
         # 🎯 메뉴판 표시 (맨 위)
         st.markdown("## 📋 카페 메뉴판")
         
-        if st.session_state.menu_image is not None:
+        try:
             st.markdown('<div class="menu-image-main">', unsafe_allow_html=True)
             st.image("https://i.ibb.co/k2y63WqW/IMG-6333.jpg", use_column_width=True)
             st.markdown('</div>', unsafe_allow_html=True)
-        else:
-            st.info("📸 아래 업로드 버튼을 통해 메뉴판 사진을 올려주세요!")
+        except Exception as e:
+            st.error(f"📸 이미지 로드 오류: {str(e)}")
         
         # 주문 섹션
         st.markdown('<div class="main-order-section">', unsafe_allow_html=True)
